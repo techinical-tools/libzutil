@@ -18,6 +18,7 @@
 void __attribute__((constructor(101))) zutil_security_init(void) {
     // 1. Environment Sanity Check
     // Check if we are being debugged or if LD_PRELOAD is being tampered with
+
     #ifndef _WIN32
     if (getenv("LD_PRELOAD") != NULL) {
         fprintf(stderr, "[Z-GUARD] Security Alert: Unauthorized library injection detected!\n");
